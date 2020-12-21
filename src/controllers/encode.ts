@@ -12,7 +12,7 @@ type EncodeBody = {
 
 export async function encode(
   req: Request<null, EncodeResponse, EncodeBody>,
-  res: Response
+  res: Response<EncodeResponse>
 ) {
   const { input } = req.body;
 
@@ -24,5 +24,5 @@ export async function encode(
     shortenedURL,
   });
 
-  return res.json({ data: mappedURL });
+  return res.json({ data: mappedURL.shortenedURL });
 }
