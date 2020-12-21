@@ -10,13 +10,14 @@ interface Encoder {
 }
 
 class URLEncoder implements Encoder {
+  private base = POSSIBLE_CHARS.length;
+
   encode(id: number): string {
     let shortenedURL = '';
     let num = id;
-    const base = POSSIBLE_CHARS.length;
     while (num > 0) {
-      shortenedURL = POSSIBLE_CHARS.charAt(num % base) + shortenedURL;
-      num = Math.floor(num / base);
+      shortenedURL = POSSIBLE_CHARS.charAt(num % this.base) + shortenedURL;
+      num = Math.floor(num / this.base);
     }
     return `${BASE_DOMAIN}/${shortenedURL}`;
   }
