@@ -17,8 +17,14 @@ export async function decode(
 ) {
   const { input } = req.query;
 
+  /**
+   * we assume the shortened URL is passed alongside the domain (not just the shortened segment), so we remove the base domain URL if it exists
+   */
   const inputWithoutBaseDomain = input.replace(`${BASE_DOMAIN}/`, '');
 
+  /**
+   * get numerical ID from the shortened URL segment
+   */
   const id = urlDecoder.decode(inputWithoutBaseDomain);
   const mappedURL = inMemoryStore.lookupValueById(id);
 
