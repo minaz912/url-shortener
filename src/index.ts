@@ -15,7 +15,7 @@ app.get('/', (_req, res) => {
 // set up routes
 app.use(router);
 
-app.listen(port, () => {
+export const httpServer = app.listen(port, () => {
   console.log(
     `[App] - 🚀 Express server listening on http://127.0.0.1:${port}`
   );
