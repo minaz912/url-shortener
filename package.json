@@ -11,7 +11,7 @@
     "start": "ts-node src/index.ts",
     "build": "tsc",
     "start:prod": "NODE_ENV=production npm run build && NODE_ENV=production node dist/src/index.js",
-    "test": "jest --runInBand --forceExit"
+    "test": "jest --runInBand"
   },
   "author": "Mina Beshay",
   "license": "ISC",
