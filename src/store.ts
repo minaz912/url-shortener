@@ -44,6 +44,10 @@ class InMemoryStore implements Store<MappedURL> {
     const lookupResult = this.valueMap.get(id);
     return lookupResult || null;
   }
+
+  reset() {
+    this.lastGeneratedID = 0;
+  }
 }
 
 export const inMemoryStore = new InMemoryStore();
