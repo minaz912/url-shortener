@@ -47,6 +47,7 @@ class InMemoryStore implements Store<MappedURL> {
 
   reset() {
     this.lastGeneratedID = 0;
+    this.valueMap.clear();
   }
 }
 
