@@ -1,33 +1,35 @@
-### Objective
+# URL Shortener
 
-Your assignment is to implement a URL shortening service using Node and any framework.
+## Prerequisites for running the app locally
 
-### Brief
+- node v12.17.0 or higher
+- npm v6.14.8 or higher
 
-ShortLink is a URL shortening service where you enter a URL such as https://codesubmit.io/library/react and it returns a short URL such as http://short.est/GeAi9K.
+## How to run
 
-### Tasks
+- Go to the root folder and install dependencies (if you haven't already done so) with `npm ci`
+- Run `npm start`
 
--   Implement assignment using:
-    -   Language: **Node**
-    -   Framework: **any framework**
-    -   Two endpoints are required
-        -   /encode - Encodes a URL to a shortened URL
-        -   /decode - Decodes a shortened URL to its original URL.
-    -   Both endpoints should return JSON
--   There is no restriction on how your encode/decode algorithm should work. You just need to make sure that a URL can be encoded to a short URL and the short URL can be decoded to the original URL. **You do not need to persist short URLs to a database. Keep them in memory.**
--   Provide detailed instructions on how to run your assignment in a separate markdown file
--   Provide API tests for both endpoints
+## Building and running production
 
-### Evaluation Criteria
+- Run `npm run build`, you'll see the transpiled output in the `dist` directory
+- You can alternatively just run `npm run start:prod` to run in production mode
 
--   **Node** best practices
--   API implemented featuring a /encode and /decode endpoint
+## Testing & Coverage
 
-### CodeSubmit
+- Run `npm test` to run tests and collect coverage
+- You can find the collected coverage in the generated `coverage` directory
 
-Please organize, design, test and document your code as if it were going into production - then push your changes to the master branch. After you have pushed your code, you may submit the assignment on the assignment page.
+## TODO
 
-All the best and happy coding,
-
-The finn GmbH Team
+- Define a max URL length for inputs
+- In-memory store could eventually run out of memory and crash the process (the `Map` memory usage is going to increase forever), as well as being reset on process restart/shutdown, an external key-value store or DB would be useful here
+- OpenAPI spec
+- Sanitize inputs or check against known malicious URL databases to prevent possible abuse by malicious actors
+- Rate limiting or captcha to avoid/reduce spam
+- Customize the base domain URL via env variables
+- Set up a real logger and customize log levels
+- Add Dockerfile
+- Health-check endpoint (useful when running in a containerized setup)
+- CI config
+- Pre-commit hooks (linting, type-checks)
